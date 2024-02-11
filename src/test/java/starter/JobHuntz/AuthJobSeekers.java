@@ -9,9 +9,17 @@ import java.io.File;
 
 public class AuthJobSeekers {
     public static String LOGIN_JOBSEEKERS = Constants.BASE_URL + "/login/jobseekers";
+    public static String REGISTER_JOBSEEKERS = Constants.BASE_URL + "/register/jobseekers";
 
-    @Step ("Login job seekers valid")
-    public void loginJobSeekersValid (File json) {
-        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    @Step ("Login job seekers")
+    public void loginJobSeekers (File json) {
+        SerenityRest.given()
+                .contentType(ContentType.JSON).body(json);
+    }
+
+    @Step ("Register job seekers")
+    public void registerJobSeekers (File json) {
+        SerenityRest.given()
+                .contentType(ContentType.JSON).body(json);
     }
 }
