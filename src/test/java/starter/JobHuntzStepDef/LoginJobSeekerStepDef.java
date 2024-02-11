@@ -15,14 +15,14 @@ import java.io.File;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class LoginJobSeekersStepDef {
+public class LoginJobSeekerStepDef {
     @Steps
     AuthJobSeekers authJobSeekers;
 
-    @Given("User with json file {string}")
+    @Given("User login with json file {string}")
     public void userWithJsonFile(String json) {
-        File jsonLogin = new File (Constants.REQ_BODY_DIR + json);
-        authJobSeekers.loginJobSeekersValid(jsonLogin);
+        File jsonLogin = new File (Constants.REQ_BODY_DIR + "/LoginJobSeeker/" + json);
+        authJobSeekers.loginJobSeekers(jsonLogin);
     }
 
     @When("Send request post login job seeker")
