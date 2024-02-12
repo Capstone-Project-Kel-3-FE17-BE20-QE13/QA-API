@@ -14,4 +14,5 @@ public class Token {
 
         return response.jsonPath().getString("data.token");
     }
+
 }
