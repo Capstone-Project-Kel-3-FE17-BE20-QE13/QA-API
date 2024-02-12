@@ -9,4 +9,5 @@ public class Constants {
     public static String MESSAGE = "message";
     public static String DATA_TOKENS = "token";
     public static String IMAGE_UPLOAD_REQUEST = DIR+"/src/test/resources/images/";
+    public static String AUTH_TOKEN;
 }
