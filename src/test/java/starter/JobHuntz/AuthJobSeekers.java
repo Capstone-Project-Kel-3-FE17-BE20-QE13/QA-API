@@ -14,6 +14,7 @@ public class AuthJobSeekers {
     @Step ("Login job seekers")
     public void loginJobSeekers (File json) {
         SerenityRest.given()
+//                .header("Authorization", "Bearer " + Constants.AUTH_TOKEN)
                 .contentType(ContentType.JSON).body(json);
     }
 

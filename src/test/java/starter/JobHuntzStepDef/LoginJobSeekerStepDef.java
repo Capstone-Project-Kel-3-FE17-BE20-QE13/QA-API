@@ -5,6 +5,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.JobHuntz.AuthJobSeekers;
@@ -27,7 +29,9 @@ public class LoginJobSeekerStepDef {
 
     @When("Send request post login job seeker")
     public void sendRequestPostLoginJobSeeker() {
-        SerenityRest.when().post(AuthJobSeekers.LOGIN_JOBSEEKERS);
+        Response response = SerenityRest.when().post(AuthJobSeekers.LOGIN_JOBSEEKERS);
+        JsonPath jsonPathEvaluator = response.jsonPath();
+        Constants.AUTH_TOKEN = jsonPathEvaluator.get("data.token");
     }
 
     @Then("Status code should be {int}")
