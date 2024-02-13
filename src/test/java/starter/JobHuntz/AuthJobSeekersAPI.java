@@ -7,9 +7,10 @@ import starter.utils.Constants;
 
 import java.io.File;
 
-public class AuthJobSeekers {
+public class AuthJobSeekersAPI {
     public static String LOGIN_JOBSEEKERS = Constants.BASE_URL + "/login/jobseekers";
     public static String REGISTER_JOBSEEKERS = Constants.BASE_URL + "/register/jobseekers";
+
 
     @Step ("Login job seekers")
     public void loginJobSeekers (File json) {

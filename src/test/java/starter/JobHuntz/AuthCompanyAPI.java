@@ -7,7 +7,7 @@ import starter.utils.Constants;
 
 import java.io.File;
 
-public class AuthCompany {
+public class AuthCompanyAPI {
     public static String LOGIN_COMPANY = Constants.BASE_URL + "/login/company";
     public static String REGISTER_COMPANY = Constants.BASE_URL + "/register/company";
 

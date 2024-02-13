@@ -1,5 +1,6 @@
 Feature: Login Job Seeker
 
+  @Test
   Scenario: [LGJ001] Login job seeker with valid data
     Given User login with json file "LGJ001.json"
     When Send request post login job seeker
