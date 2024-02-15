@@ -33,6 +33,7 @@ public class VacancyByJobSeekerStepDef {
 
     @When("Send request get detail vacancy")
     public void sendRequestGetDetailVacancy() {
+
         SerenityRest.when().get(VacancyByJobSeekerAPI.GET_VACANCY_ID);
     }
 
