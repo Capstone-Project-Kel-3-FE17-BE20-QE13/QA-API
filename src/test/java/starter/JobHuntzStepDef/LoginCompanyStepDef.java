@@ -27,6 +27,5 @@ public class LoginCompanyStepDef {
         Constants.COMPANY_TOKEN = response.jsonPath().get("data.token");
     }
 
-
 }
 

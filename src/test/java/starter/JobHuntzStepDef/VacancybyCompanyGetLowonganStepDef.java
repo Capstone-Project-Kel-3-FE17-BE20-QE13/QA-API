@@ -15,9 +15,19 @@ public class VacancybyCompanyGetLowonganStepDef {
     public void companyCreateJob() {
         vacancybyCompanyGetLowonganAPI.getAllLowongan();
     }
-    @When("Send request get vacancy")
-    public void sendRequestGetVacancy() {
-      SerenityRest.when().get(VacancybyCompanyGetLowonganAPI.GET_ALL_LOWONGAN);
+    @When("Send request post vacancy")
+    public void sendRequestPostVacancy() {
+      SerenityRest.when().post(VacancybyCompanyGetLowonganAPI.POST_VACANCY_BY_COMPANY);
+
+    }
+
+    @Given("Get all lowongan")
+    public void getAllLowongan() { vacancybyCompanyGetLowonganAPI.getAllLowongan();
+    }
+
+    @When("Send request et all lowongan")
+    public void sendRequestEtAllLowongan() {
+            SerenityRest.when().get(VacancybyCompanyGetLowonganAPI.GET_ALL_LOWONGAN);
 
     }
 
