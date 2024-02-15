@@ -2,6 +2,7 @@ package starter.JobHuntzStepDef;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.JobHuntz.AuthCompanyAPI;
@@ -20,7 +21,8 @@ public class LoginCompanyStepDef {
     }
     @When("Send request post login company")
     public void sendRequestPostLoginCompany() {
-        SerenityRest.when().post(AuthCompanyAPI.LOGIN_COMPANY);
+        Response response = SerenityRest.when().post(AuthCompanyAPI.LOGIN_COMPANY);
+        Constants.COMPANY_TOKEN = response.jsonPath().get("data.token");
     }
 
 }
