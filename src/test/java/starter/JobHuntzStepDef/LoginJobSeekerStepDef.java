@@ -21,7 +21,6 @@ import static org.hamcrest.Matchers.equalTo;
 public class LoginJobSeekerStepDef {
     @Steps
     AuthJobSeekersAPI authJobSeekersAPI;
-    Constants constants;
 
     @Given("User login with json file {string}")
     public void userWithJsonFile(String json) throws IOException {
@@ -30,13 +29,14 @@ public class LoginJobSeekerStepDef {
     }
 
     @When("Send request post login job seeker")
-    public void sendRequestPostLoginJobSeeker() throws IOException {
+    public void sendRequestPostLoginJobSeeker() {
+        SerenityRest.when().post(AuthJobSeekersAPI.LOGIN_JOBSEEKERS);
+    }
+
+    @When("Send request post login job seeker with valid data")
+    public void sendRequestPostLoginJobSeekerValid() {
         Response response = SerenityRest.when().post(AuthJobSeekersAPI.LOGIN_JOBSEEKERS);
-        JsonPath jsonPathEvaluator = response.jsonPath();
-        String token = jsonPathEvaluator.get("data.token");
-//        Constants.setAuthToken(token);
-        System.out.println(response.jsonPath().getString("data.token"));
-            Constants.AUTH_TOKEN = response.jsonPath().get("data.token");
+        Constants.AUTH_TOKEN = response.jsonPath().get("data.token");
     }
 
     @Then("Status code should be {int}")
