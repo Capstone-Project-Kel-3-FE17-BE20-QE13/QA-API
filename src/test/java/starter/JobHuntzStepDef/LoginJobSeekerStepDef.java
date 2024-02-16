@@ -5,29 +5,38 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
-import starter.JobHuntz.AuthJobSeekers;
+import starter.JobHuntz.AuthJobSeekersAPI;
 import starter.JobHuntz.JobHuntzResponses;
 import starter.utils.Constants;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class LoginJobSeekersStepDef {
+public class LoginJobSeekerStepDef {
     @Steps
-    AuthJobSeekers authJobSeekers;
+    AuthJobSeekersAPI authJobSeekersAPI;
+    Constants constants;
 
-    @Given("User with json file {string}")
-    public void userWithJsonFile(String json) {
-        File jsonLogin = new File (Constants.REQ_BODY_DIR + json);
-        authJobSeekers.loginJobSeekersValid(jsonLogin);
+    @Given("User login with json file {string}")
+    public void userWithJsonFile(String json) throws IOException {
+        File jsonLogin = new File (Constants.REQ_BODY_DIR + "LoginJobSeeker/" + json);
+        authJobSeekersAPI.loginJobSeekers(jsonLogin);
     }
 
     @When("Send request post login job seeker")
-    public void sendRequestPostLoginJobSeeker() {
-        SerenityRest.when().post(AuthJobSeekers.LOGIN_JOBSEEKERS);
+    public void sendRequestPostLoginJobSeeker() throws IOException {
+        Response response = SerenityRest.when().post(AuthJobSeekersAPI.LOGIN_JOBSEEKERS);
+        JsonPath jsonPathEvaluator = response.jsonPath();
+        String token = jsonPathEvaluator.get("data.token");
+//        Constants.setAuthToken(token);
+        System.out.println(response.jsonPath().getString("data.token"));
+            Constants.AUTH_TOKEN = response.jsonPath().get("data.token");
     }
 
     @Then("Status code should be {int}")
