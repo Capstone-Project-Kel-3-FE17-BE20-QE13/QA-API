@@ -35,6 +35,13 @@ Feature: Job Seeker Career
     Then Status code should be 200
     And Response body message was "successfully delete career"
 
+#  @JobSeeker
+#  Scenario: [PUC001] Post user career
+#    Given Post user career with json "PUC001.json"
+#    When Send request post user career
+#    Then Status code should be 200
+#    And Response body message was "successfully create career"
+
 
 
 

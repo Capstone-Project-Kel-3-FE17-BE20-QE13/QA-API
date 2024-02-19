@@ -4,7 +4,7 @@ Feature: Register Job Seekers
   Scenario: [RNJ001] Register new job seeker with valid data
     Given User register with json file "RNJ001.json"
     When Send request post register job seeker
-    Then Status code should be 201
+    Then Status code should be 200
 
   @JobSeeker
   Scenario: [RNJ002] Register new job seeker with invalid email

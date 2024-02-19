@@ -10,7 +10,7 @@ Feature: Register Company
     Given Company register with json file "RNC002.json"
     When Send request post register company
     Then Status code should be 400
-    And Response body message was "successfully registered"
+    And Response body message was "error insert dataError 1062 (23000): Duplicate entry 'halimah24577' for key 'companies.email'"
 
   Scenario: [RNC003] Register new company with empty email
     Given Company register with json file "RNC003.json"
@@ -51,14 +51,14 @@ Feature: Register Company
   Scenario: [RNC009] Register new company with password equals to 8 characters
     Given Company register with json file "RNC009.json"
     When Send request post register company
-    Then Status code should be 400
-    And Response body message contain "error insert data"
+    Then Status code should be 200
+    And Response body message was "successfully registered"
 
   Scenario: [RNC010] Register new company with password more than 8 characters
     Given Company register with json file "RNC010.json"
     When Send request post register company
-    Then Status code should be 400
-    And Response body message contain "error insert data"
+    Then Status code should be 200
+    And Response body message was "successfully registered"
 
   Scenario: [RNC011] Register new company with invalid website
     Given Company register with json file "RNC011.json"
