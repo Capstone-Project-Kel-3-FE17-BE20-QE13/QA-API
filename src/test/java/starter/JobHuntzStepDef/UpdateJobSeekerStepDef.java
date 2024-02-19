@@ -92,7 +92,7 @@ public class UpdateJobSeekerStepDef {
     }
 
     @Given("Get all user careers")
-    public void getAllUserCareers() throws Exception {
+    public void getAllUserCareers() {
         jobSeekersProfileAPI.getAllJSCareers();
     }
 
