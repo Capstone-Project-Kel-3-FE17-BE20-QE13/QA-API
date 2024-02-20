@@ -14,47 +14,46 @@ public class CompanyProfileAPI {
     public static String UPDATE_PROFILE_COMPANY = Constants.BASE_URL + "/company";
     public static String GET_COMPANY_PROFILE = Constants.BASE_URL + "/company";
     @Step("Update company profile")
-    public void updateCompanyProfile (File json) {
-        String token = Constants.COMPANY_TOKEN;
+    public void updateCompanyProfile (Map<String, ?> formData) throws IOException {
         SerenityRest.given()
-                .header("Authorization", "Bearer " + token)
-                .contentType("application/json").body(json);
+                .header("Authorization", "Bearer " + Constants.COMPANY_TOKEN)
+                .contentType("multipart/form-data")
+                .multiPart("image_url",(File) formData.get("image_url"))
+                .multiPart("company_name", formData.get("company_name"))
+                .multiPart("full_name", formData.get("full_name"))
+                .multiPart("address", formData.get("address"))
+                .multiPart("phone", formData.get("company_size"))
+                .multiPart("company_size", formData.get("company_size"))
+                .multiPart("website", formData.get("website"))
+                .multiPart("description", formData.get("description"));
     }
 
     @Step ("Get user details profile")
     public void getCompanyDetails () {
         SerenityRest.given().header("Authorization", "Bearer " + Constants.COMPANY_TOKEN);
     }
-    @Step("Update photo company")
-    public void setPutPhotoCompany(String image_url) throws IOException {
-        Map<String, Object> formData = putImageUrl (image_url);
-        putImageUrl1(formData);
-    }
+//    @Step("Update company profile")
+//    public void setPutPhotoCompany(String image_url, String company_name, String full_name, String address, String phone, String company_size, String website, String description) throws IOException {
+//        Map<String, Object> formData = putImageUrl (image_url);
+//        putImageUrl1(formData);
+//
+//    }
 
-    private Map<String, Object> putImageUrl(String image_url) {
-        Map<String, Object> formData = new HashMap<>();
-        File fileImageUrl = new File(Constants.FILE, image_url);
-
-        formData.put("image_url", fileImageUrl);
-
-        return formData;
-    }
-
-    private void putImageUrl1(Map<String, ?> formData) {
-        Response response = SerenityRest.given()
-                .header("Authorization", "Bearer " + Constants.COMPANY_TOKEN)
-                .contentType("multipart/form-data")
-                .multiPart("image_url", (File) formData.get("image_url"))
-                .put(GET_COMPANY_PROFILE);
-
-        // Add logging or other handling here as needed.
-    }
-//    public void setPutPhotoCompany
-//            (Map<String, ?> formData) {
-//        SerenityRest.given()
+//    private Map<String, Object> putImageUrl(String image_url) {
+//        Map<String, Object> formData = new HashMap<>();
+//        File fileImageUrl = new File(Constants.FILE, image_url);
+//
+//        formData.put("image_url", fileImageUrl);
+//
+//        return formData;
+//    }
+//
+//    private void putImageUrl1(Map<String, ?> formData) {
+//        Response response = SerenityRest.given()
 //                .header("Authorization", "Bearer " + Constants.COMPANY_TOKEN)
 //                .contentType("multipart/form-data")
-//                .multiPart("image_url",(File) formData.get("image_url"));
+//                .multiPart("image_url", (File) formData.get("image_url"))
+//                .put(GET_COMPANY_PROFILE);
 //    }
 
 
