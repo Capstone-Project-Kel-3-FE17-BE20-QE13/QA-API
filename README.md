@@ -6,6 +6,9 @@ Ini adalah sebuah program API Automation Testing yang dibuat untuk project JobHu
 Untuk melihat dokumentasi dari manual testing yang dibuat, klik di sini :
 https://docs.google.com/spreadsheets/d/1XHmeN5kG0UdDupA9SkmKco7suVLjUWhO76zq6dg0aYs/edit?usp=sharing
 
+## Overall Report
+![report.png](report.png)
+
 ## Tools and Technology Stack
 - **Integrated Development Environment (IDE):** [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/)
   - *Deskripsi:* IntelliJ IDEA Community Edition digunakan sebagai IDE untuk pengembangan perangkat lunak dalam proyek ini. Menyediakan fitur-fitur kaya untuk penyuntingan kode, debugging, dan manajemen proyek.
@@ -57,5 +60,4 @@ Pastikan Anda memahami persyaratan dan konfigurasi proyek sebelum menjalankannya
 
 ## TEAM MEMBER
 - **Sofie Miranti Khairunnisa**
-
 - **Halimah Kurnia Fitriani**
