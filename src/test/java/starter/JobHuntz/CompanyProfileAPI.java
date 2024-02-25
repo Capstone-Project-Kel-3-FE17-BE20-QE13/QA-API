@@ -14,7 +14,7 @@ public class CompanyProfileAPI {
     public static String UPDATE_PROFILE_COMPANY = Constants.BASE_URL + "/company";
     public static String GET_COMPANY_PROFILE = Constants.BASE_URL + "/company";
     @Step("Update company profile")
-    public void updateCompanyProfile (Map<String, ?> formData) throws IOException {
+    public void updateCompanyProfile (Map<String, ?> formData) {
         SerenityRest.given()
                 .header("Authorization", "Bearer " + Constants.COMPANY_TOKEN)
                 .contentType("multipart/form-data")
@@ -22,10 +22,26 @@ public class CompanyProfileAPI {
                 .multiPart("company_name", formData.get("company_name"))
                 .multiPart("full_name", formData.get("full_name"))
                 .multiPart("address", formData.get("address"))
-                .multiPart("phone", formData.get("company_size"))
+                .multiPart("phone", formData.get("phone"))
                 .multiPart("company_size", formData.get("company_size"))
                 .multiPart("website", formData.get("website"))
                 .multiPart("description", formData.get("description"));
+    }
+
+    @Step("Update company profile full name")
+    public void updateCompanyProfileFullName (Map<String, ?> formData) {
+        SerenityRest.given()
+                .header("Authorization", "Bearer " + Constants.COMPANY_TOKEN)
+                .contentType("multipart/form-data")
+                .multiPart("full_name", formData.get("full_name"));
+    }
+
+    @Step("Update company profile address")
+    public void updateCompanyProfileAddress (Map<String, ?> formData) {
+        SerenityRest.given()
+                .header("Authorization", "Bearer " + Constants.COMPANY_TOKEN)
+                .contentType("multipart/form-data")
+                .multiPart("address", formData.get("address"));
     }
 
     @Step ("Get user details profile")
