@@ -8,6 +8,7 @@ Feature: Job Seeker License
     When Send request post user license
     Then Status code should be 200
     And Response body message was "successfully create license"
+    And Validate json schema "MessageSchema.json"
     Examples:
       | license_name | pub_date                 | exp_date                 | license     |
       | certificate  | 2024-02-12T17:01:00.300Z | 2027-02-12T17:01:00.300Z | LICENSE.pdf |
@@ -38,6 +39,7 @@ Feature: Job Seeker License
     When Send request put license with id
     Then Status code should be 200
     And Response body message was "successfully update license"
+    And Validate json schema "MessageSchema.json"
     Examples:
       | license_name  | pub_date                 | exp_date                 | license     |
       | certificate 2 | 2024-02-12T17:01:00.300Z | 2027-02-12T17:01:00.300Z | LICENSE.pdf |
@@ -50,6 +52,7 @@ Feature: Job Seeker License
     When Send request delete license with id
     Then Status code should be 200
     And Response body message was "successfully delete license"
+    And Validate json schema "MessageSchema.json"
 
 #  @JobSeeker
 #  Scenario Outline: [PUL001] Post user license

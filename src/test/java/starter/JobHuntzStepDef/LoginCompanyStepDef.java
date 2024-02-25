@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.Steps;
 import starter.JobHuntz.AuthCompanyAPI;
 import starter.utils.Constants;
 import java.io.File;
-
+import java.io.IOException;
 
 
 public class LoginCompanyStepDef {

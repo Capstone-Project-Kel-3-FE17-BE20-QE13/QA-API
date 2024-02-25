@@ -18,6 +18,7 @@ Feature: Update Job Seeker Profile
     When Send request put update job seeker
     Then Status code should be 200
     And Response body message was "successfully update profile"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [UUP006] Update user username with username has been used
@@ -35,6 +36,7 @@ Feature: Update Job Seeker Profile
     When Send request put update job seeker
     Then Status code should be 200
     And Response body message was "successfully update profile"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [UUP008] Update user phone with letters
@@ -43,6 +45,8 @@ Feature: Update Job Seeker Profile
     Given Update job seeker with json "UUP008.json"
     When Send request put update job seeker
     Then Status code should be 400
+    And Response body message was "please enter a valid phone number"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [UUP009] Update user gender
@@ -52,6 +56,7 @@ Feature: Update Job Seeker Profile
     When Send request put update job seeker
     Then Status code should be 200
     And Response body message was "successfully update profile"
+    And Validate json schema "MessageSchema.json"
 
 #  @JobSeeker
 #  Scenario: [UUP010] Update all user profile

@@ -6,6 +6,7 @@ Feature: Job Seeker CV
     When Send request post file
     Then Status code should be 200
     And Response body message was "successfully upload cv"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: Get all cvs
@@ -20,6 +21,7 @@ Feature: Job Seeker CV
     When Send request put file
     Then Status code should be 200
     And Response body message was "successfully update cv"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: Delete CV
@@ -27,6 +29,7 @@ Feature: Job Seeker CV
     When Send request delete file
     Then Status code should be 200
     And Response body message was "successfully delete cv"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: Post user cv
@@ -34,3 +37,4 @@ Feature: Job Seeker CV
     When Send request post file
     Then Status code should be 200
     And Response body message was "successfully upload cv"
+    And Validate json schema "MessageSchema.json"

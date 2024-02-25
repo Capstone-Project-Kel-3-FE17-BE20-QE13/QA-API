@@ -8,6 +8,7 @@ Feature: Job Seeker Education
     When Send request post user education
     Then Status code should be 200
     And Response body message was "successfully create education"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [GUE001] Get all user educations
@@ -35,6 +36,7 @@ Feature: Job Seeker Education
     When Send request put user education
     Then Status code should be 200
     And Response body message was "successfully update education"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [DUE001] Delete user education with valid id
@@ -44,6 +46,7 @@ Feature: Job Seeker Education
     When Send request delete user education
     Then Status code should be 200
     And Response body message was "successfully delete education"
+    And Validate json schema "MessageSchema.json"
 
 #  @JobSeeker
 #  Scenario: [PUE001] Post user education

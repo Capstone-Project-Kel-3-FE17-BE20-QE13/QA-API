@@ -28,7 +28,7 @@ Feature: Apply job by job seeker
 
   @JobSeeker
   Scenario Outline: [PAP003] Apply job with param id more than 3 applications for verified account
-    Given User login with json file "LGJ001_1.json"
+    Given User login with json file "LGJ001_verif.json"
     When Send request post login job seeker with valid data
     Given Job seeker has been logged in and vacancy id <vacancy_id>
     When Send request post apply job

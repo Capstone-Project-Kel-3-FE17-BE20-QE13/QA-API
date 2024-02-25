@@ -8,6 +8,7 @@ Feature: Job Seeker Skill
     When Send request post user skill
     Then Status code should be 200
     And Response body message was "successfully create skill"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [GUS001] Get all user skills
@@ -35,6 +36,7 @@ Feature: Job Seeker Skill
     When Send request put user skill
     Then Status code should be 200
     And Response body message was "successfully update skill"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [DUS001] Delete user skill with valid id
@@ -44,6 +46,7 @@ Feature: Job Seeker Skill
     When Send request delete user skill
     Then Status code should be 200
     And Response body message was "successfully delete skill"
+    And Validate json schema "MessageSchema.json"
 
 #  @JobSeeker
 #  Scenario: [PUS001] Post user skill

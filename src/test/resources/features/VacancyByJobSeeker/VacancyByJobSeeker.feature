@@ -34,6 +34,7 @@ Feature: Vacancy by Job Seekers
     When Send request add vacancy to favorite
     Then Status code should be 200
     And Response body message was "success create favourite"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [DVC001] Delete Vacancy from Favorite
@@ -43,6 +44,7 @@ Feature: Vacancy by Job Seekers
     When Send request delete vacancy from favorite
     Then Status code should be 200
     And Response body message was "success delete data"
+    And Validate json schema "MessageSchema.json"
 
   @JobSeeker
   Scenario: [GVC003] Get all favorite vacancies
@@ -51,6 +53,6 @@ Feature: Vacancy by Job Seekers
     Given Job seeker has logged in
     When Send request get all favorite vacancies
     Then Status code should be 200
-    And Response body message was "success read all favourites"
+    And Response body message was "success read data"
 
 
